@@ -5,16 +5,15 @@ import (
 	"time"
 )
 
-func CreateJWT() (string, error) {
+func CreateJWT(secret string, expiresInMinutes int) (string, error) {
 	claims := jwt.MapClaims{
-		"name":  "John Doe",
-		"admin": true,
-		"exp":   time.Now().Add(time.Hour * 72).Unix(),
+		"name": "John Doe",
+		"exp":  time.Now().Add(time.Minute * time.Duration(expiresInMinutes)).Unix(),
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
 
-	t, err := token.SignedString([]byte("very_public_secret"))
+	t, err := token.SignedString([]byte(secret))
 
 	return t, err
 }

@@ -7,8 +7,9 @@ import (
 var cfg *conf
 
 type conf struct {
-	WebServerPort string `mapstructure:"WEBSERVER_PORT"`
-	JWTSecret     string `mapstructure:"JWT_SECRET"`
+	WebServerPort       string `mapstructure:"WEBSERVER_PORT"`
+	JWTSecret           string `mapstructure:"JWT_SECRET"`
+	JWTExpiresInMinutes int    `mapstructure:"JWT_EXPIRES_IN_MINUTES"`
 }
 
 func LoadConfig(path string) (*conf, error) {
