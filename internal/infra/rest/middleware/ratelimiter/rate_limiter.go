@@ -1,16 +1,11 @@
 package ratelimiter
 
 import (
+	"github.com/andre2ar/rate-limiter/pkg/cache"
 	"github.com/gofiber/fiber/v2"
-	"rate-limiter/pkg/cache"
 	"strconv"
 	"time"
 )
-
-type Data struct {
-	IP           string
-	RequestCount int
-}
 
 func New(cacheClient cache.Client, maxRequestPerMinuteIP int, maxRequestPerMinuteToken int) fiber.Handler {
 	return func(ctx *fiber.Ctx) error {

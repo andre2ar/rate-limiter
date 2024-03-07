@@ -1,14 +1,14 @@
 package rest
 
 import (
+	"github.com/andre2ar/rate-limiter/config"
+	"github.com/andre2ar/rate-limiter/internal/entity"
+	"github.com/andre2ar/rate-limiter/internal/infra/rest/middleware/ratelimiter"
+	"github.com/andre2ar/rate-limiter/internal/infra/rest/routes"
+	"github.com/andre2ar/rate-limiter/pkg/cache"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/requestid"
-	"rate-limiter/config"
-	"rate-limiter/internal/entity"
-	"rate-limiter/internal/infra/rest/middleware/ratelimiter"
-	"rate-limiter/internal/infra/rest/routes"
-	"rate-limiter/pkg/cache"
 )
 
 func CreateRestServer(cfg *config.Config, cacheClient cache.Client) error {

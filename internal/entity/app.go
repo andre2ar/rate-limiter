@@ -1,8 +1,8 @@
 package entity
 
 import (
+	"github.com/andre2ar/rate-limiter/pkg/cache"
 	"github.com/gofiber/fiber/v2"
-	"rate-limiter/pkg/cache"
 )
 
 type App struct {

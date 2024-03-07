@@ -1,9 +1,9 @@
 package api
 
 import (
+	"github.com/andre2ar/rate-limiter/internal/entity"
+	"github.com/andre2ar/rate-limiter/internal/usecase"
 	"github.com/gofiber/fiber/v2"
-	"rate-limiter/internal/entity"
-	"rate-limiter/internal/usecase"
 )
 
 func CreateSession(app *entity.App) fiber.Handler {

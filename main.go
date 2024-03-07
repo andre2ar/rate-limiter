@@ -1,10 +1,10 @@
 package main
 
 import (
+	configuration "github.com/andre2ar/rate-limiter/config"
+	"github.com/andre2ar/rate-limiter/internal/infra/rest"
+	"github.com/andre2ar/rate-limiter/pkg/cache"
 	"log"
-	configuration "rate-limiter/config"
-	"rate-limiter/internal/infra/rest"
-	"rate-limiter/pkg/cache"
 )
 
 func main() {
