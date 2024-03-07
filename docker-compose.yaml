@@ -4,8 +4,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: "no"
     container_name: "rate-limiter-server"
     ports:
       - "8080:8080"
     volumes:
       - ./:/app
+  rate-limiter-redis:
+    image: redis
+    restart: "no"
+    container_name: "rate-limiter-redis"
+    command: redis-server --requirepass pass
+    ports:
+      - "6379:6379"
