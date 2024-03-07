@@ -4,17 +4,19 @@ import (
 	"github.com/spf13/viper"
 )
 
-var cfg *Conf
+var cfg *Config
 
-type Conf struct {
-	WebServerPort       string `mapstructure:"WEBSERVER_PORT"`
-	RedisAddress        string `mapstructure:"REDIS_ADDRESS"`
-	RedisPassword       string `mapstructure:"REDIS_PASSWORD"`
-	JWTSecret           string `mapstructure:"JWT_SECRET"`
-	JWTExpiresInMinutes int    `mapstructure:"JWT_EXPIRES_IN_MINUTES"`
+type Config struct {
+	WebServerPort            string `mapstructure:"WEBSERVER_PORT"`
+	RedisAddress             string `mapstructure:"REDIS_ADDRESS"`
+	RedisPassword            string `mapstructure:"REDIS_PASSWORD"`
+	MaxRequestPerMinuteIP    int    `mapstructure:"MAX_REQUESTS_PER_MINUTE_IP"`
+	MaxRequestPerMinuteToken int    `mapstructure:"MAX_REQUESTS_PER_MINUTE_TOKEN"`
+	JWTSecret                string `mapstructure:"JWT_SECRET"`
+	JWTExpiresInMinutes      int    `mapstructure:"JWT_EXPIRES_IN_MINUTES"`
 }
 
-func LoadConfig(path string) (*Conf, error) {
+func LoadConfig(path string) (*Config, error) {
 	viper.AddConfigPath(path)
 	viper.SetConfigName("app")
 	viper.SetConfigType("env")

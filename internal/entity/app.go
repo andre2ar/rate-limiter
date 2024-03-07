@@ -7,7 +7,7 @@ import (
 
 type App struct {
 	*fiber.App
-	CacheClient         *cache.Client
+	CacheClient         cache.Client
 	JWTSecret           string
 	JWTExpiresInMinutes int
 }

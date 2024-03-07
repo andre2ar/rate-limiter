@@ -30,3 +30,7 @@ func (c *RedisClient) Set(key string, value any, expiration time.Duration) error
 func (c *RedisClient) Get(key string) (any, error) {
 	return c.client.Get(*c.ctx, key).Result()
 }
+
+func (c *RedisClient) Incr(key string) error {
+	return c.client.Incr(*c.ctx, key).Err()
+}

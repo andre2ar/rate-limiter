@@ -8,12 +8,12 @@ import (
 )
 
 func main() {
-	config, err := configuration.LoadConfig(".")
+	cfg, err := configuration.LoadConfig(".")
 	if err != nil {
 		panic(err)
 	}
 
-	cacheClient := cache.NewRedisClient(config.RedisAddress, config.RedisPassword, 0)
+	cacheClient := cache.NewRedisClient(cfg.RedisAddress, cfg.RedisPassword, 0)
 
-	log.Fatalln(rest.CreateRestServer(config, cacheClient))
+	log.Fatalln(rest.CreateRestServer(cfg, cacheClient))
 }
