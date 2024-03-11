@@ -11,3 +11,9 @@ The live reloading server can be run by the following commands:
 or
 
 ``docker-compose up``
+
+There is only one end-point:
+
+``localhost:8080/api/v1/session``
+
+This end-point will only create a JWT and return it.
