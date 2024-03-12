@@ -4,6 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: bash .docker/start.sh
     restart: "no"
     container_name: "rate-limiter-server"
     ports:
